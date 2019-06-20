@@ -12,8 +12,12 @@ class AussiePortal(object):
     def __init__(self, username, password, debug=False):
         self.username = username
         self.password = password
-        self.session = requests.Session()
         self.debug = debug
+
+        self.session = requests.Session()
+        self.session.headers.update(
+            {'User-Agent': ("Mikal's Aussie Usage API "
+                            "https://github.com/mikalstill/aussiebb")})
 
         self._login()
 
