@@ -85,7 +85,14 @@ for service_type, service_id in services:
 print(t)
 ```
 
-This gives you output like this (for my service of course):
+This code uses environment variables to get your username and password, so set those up:
+
+```
+$ export AUSSIE_USERNAME="fred"
+$ export AUSSIE_PASSWORD="banana"
+```
+
+Then run the program, which gives you output like this (for my service of course):
 
 ```
 $ python3 example.py 
