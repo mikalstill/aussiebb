@@ -14,17 +14,20 @@ Installation
 
 You should run this in a venv. Do something like this:
 
-```$ python3 -m venv ~/virtualenvs/aussiebb
+```
+$ python3 -m venv ~/virtualenvs/aussiebb
 $ . ~/virtualenvs/aussiebb/bin/activate
 $ pip install -U pip
-$ pip install -U -r requirements.txt```
+$ pip install -U -r requirements.txt
+```
 
 Usage
 =====
 
 A usage example in example.py, but here are the high points:
 
-```import os
+```
+import os
 
 from prettytable import PrettyTable
 
@@ -79,11 +82,13 @@ for service_type, service_id in services:
                outageCount,
                '\n'.join(boltOnSummary)])
 
-print(t)```
+print(t)
+```
 
 This gives you output like this (for my service of course):
 
-```$ python3 example.py 
+```
+$ python3 example.py 
 You have 0 tickets open
 You have 2 orders
 
@@ -91,4 +96,5 @@ You have 2 orders
 | Type |   ID   | Download (MB) |    Remaining     | Upload (MB) | Current Outages |      Bolt ons      |
 +------+--------+---------------+------------------+-------------+-----------------+--------------------+
 | NBN  | 415943 |     450486    | None MB, 24 days |    22537    |        0        | Static IP ($10.00) |
-+------+--------+---------------+------------------+-------------+-----------------+--------------------+```
++------+--------+---------------+------------------+-------------+-----------------+--------------------+
+```
