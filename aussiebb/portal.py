@@ -84,3 +84,10 @@ class AussiePortal(object):
                'boltons'
                %(service_type.lower(), service_id))
         return self._get(url)
+
+
+def pretty_remaining_download(usage):
+    remainingDownload = usage['remainingMb']
+    if not remainingDownload:
+        return 'Unlimited'
+    return '%s MB' % remainingDownload
