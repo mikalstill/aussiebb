@@ -9,18 +9,6 @@ prometheus and grafana).
 Feel free to drop me a line at mikal@stillhq.com if you want to help expand
 this.
 
-Installation
-============
-
-You should run this in a venv. Do something like this:
-
-```
-$ python3 -m venv ~/virtualenvs/aussiebb
-$ . ~/virtualenvs/aussiebb/bin/activate
-$ pip install -U pip
-$ pip install -U -r requirements.txt
-```
-
 Usage
 =====
 
@@ -55,4 +43,37 @@ You have 2 orders
 +------+--------+---------------+--------------------+-------------+-----------------+--------------------+
 | NBN  | 451493 |     450486    | Unlimited, 24 days |    22537    |        0        | Static IP ($10.00) |
 +------+--------+---------------+--------------------+-------------+-----------------+--------------------+
+```
+
+Docker image for a prometheus exporter
+======================================
+
+There is also a Docker image of a prometheus exporter, which might be
+useful. To build the image, do this:
+
+```
+docker build -t aussiebb .
+docker tag aussiebb harbor.home.stillhq.com/stillhq/aussiebb
+docker push harbor.home.stillhq.com/stillhq/aussiebb
+```
+
+Where harbor.home.stillhq.com is your image repository. You can then run
+image like this:
+
+```
+docker run -e AUSSIE_USERNAME=foo -e AUSSIE_PASSWORD=bar \
+    -p 8000:8000 aussiebb:latest
+```
+
+Installation from source
+========================
+
+You should run this in a venv. Do something like this:
+
+```
+$ python3 -m venv ~/virtualenvs/aussiebb
+$ . ~/virtualenvs/aussiebb/bin/activate
+$ pip install -U pip
+$ pip install -U -r requirements.txt
+$ pip install -e .
 ```
