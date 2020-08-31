@@ -57,6 +57,12 @@ class AussiePortal(object):
         self._response_dump(r)
         return r.json()
 
+    def _post(self, url):
+        self._request_banner('POST', url)
+        r = self.session.post(url)
+        self._response_dump(r)
+        return r.json()
+
     def customer(self):
         url = 'https://myaussie-api.aussiebroadband.com.au/customer'
         return self._get(url)
@@ -64,6 +70,16 @@ class AussiePortal(object):
     def tickets(self):
         url = 'https://myaussie-api.aussiebroadband.com.au/tickets'
         return self._get(url)
+
+    def tests(self, service_id):
+        url = ('https://myaussie-api.aussiebroadband.com.au/tests/%s'
+               % service_id)
+        return self._get(url)
+
+    def dpuportstatus(self, service_id):
+        url = ('https://myaussie-api.aussiebroadband.com.au/tests/%s/dpuportstatus'
+               % service_id)
+        return self._post(url)
 
     def orders(self):
         url = 'https://myaussie-api.aussiebroadband.com.au/orders'
