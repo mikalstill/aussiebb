@@ -81,6 +81,16 @@ class AussiePortal(object):
                % service_id)
         return self._post(url)
 
+    def testresult(self, service_id, test_id):
+        url = ('https://myaussie-api.aussiebroadband.com.au/tests/%s/%s'
+               %(service_id, test_id))
+        return self._get(url)
+
+    def speedtestresults(self, service_id):
+        url = ('https://myaussie-api.aussiebroadband.com.au/speedtests/%s'
+               %(service_id))
+        return self._get(url)
+
     def orders(self):
         url = 'https://myaussie-api.aussiebroadband.com.au/orders'
         return self._get(url)
